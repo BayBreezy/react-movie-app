@@ -8,7 +8,7 @@ export const AxiosErrorHandler = (e: any) => {
 
   ShowToast(
     "Something went wrong",
-    (error?.response?.data?.status_message as string) || error.message,
+    error.message,
     <XCircleIcon className="w-8 h-8 text-red-500" />,
     "text-red-700"
   );

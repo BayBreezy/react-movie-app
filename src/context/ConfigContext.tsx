@@ -4,7 +4,7 @@ import { IPosterBackdrop } from "../types";
 
 const ConfigContext = createContext<IPosterBackdrop | undefined>({} as IPosterBackdrop);
 
-export const ConfigContextProvider = ({ children }) => {
+export const ConfigContextProvider = ({ children }: any) => {
   const [config, setConfig] = useState<IPosterBackdrop>();
   useEffect(() => {
     getConfiguration().then((c) => setConfig(c));

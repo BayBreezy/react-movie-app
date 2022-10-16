@@ -12,9 +12,10 @@ export const SearchModal = () => {
   const [results, setResults] = useState<IMovie[]>([]);
   const config = useConfigContext();
 
-  const sendSearch = async (value: string) => {
-    const res = await searchMovie(value);
-    setResults(res);
+  const sendSearch = async (value: any) => {
+    let term = value.target.value;
+    const res = await searchMovie(term);
+    setResults(res as any);
   };
 
   function closeModal() {
@@ -71,7 +72,7 @@ export const SearchModal = () => {
                     type="search"
                     name="search"
                     id="search"
-                    onInput={(e) => sendSearch(e.target.value)}
+                    onInput={(e) => sendSearch(e)}
                   />
 
                   <div className="mt-4">
